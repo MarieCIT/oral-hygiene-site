@@ -1,3 +1,12 @@
+// Scroll-to-top links (native #top anchor is unreliable against a sticky header)
+document.querySelectorAll('a[href="#top"]').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    history.pushState(null, '', '#top');
+  });
+});
+
 // Mobile nav toggle
 const navToggle = document.getElementById('navToggle');
 const navList = document.getElementById('navList');
